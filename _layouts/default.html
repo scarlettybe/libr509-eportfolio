@@ -7,8 +7,7 @@
     <meta name="description" content="{{ page.description | default: site.description }}">
     <style>
       :root {
-        --bg: #f5f5f7;
-        --card-bg: #ffffff;
+        --card-bg: rgba(255, 255, 255, 0.94);
         --text: #222222;
         --muted: #666666;
         --accent: #2952cc;
@@ -23,8 +22,15 @@
         margin: 0;
         padding: 0;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-        background-color: var(--bg);
         color: var(--text);
+        min-height: 100vh;
+        /* 背景图 + 暗色渐变 */
+        background:
+          linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.55)
+          ),
+          url('{{ "/img/background.jpeg" | relative_url }}') center center / cover fixed no-repeat;
       }
 
       .page-wrapper {
@@ -36,8 +42,8 @@
       .site-card {
         background: var(--card-bg);
         border-radius: 16px;
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.04);
-        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(0, 0, 0, 0.06);
         padding: 1.75rem 2rem 2.25rem;
       }
 
