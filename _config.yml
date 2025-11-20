@@ -1,0 +1,22 @@
+
+title: "Scarlett Sun – LIBR 509 ePortfolio"
+description: "Foundations of Resource Description and Knowledge Organization – Learning Portfolio"
+theme: minima
+
+author:
+  name: "Scarlett Sun"
+
+markdown: kramdown
+
+# Navigation links
+nav_links:
+  - title: Home
+    url: /
+  - title: Weekly Notes
+    url: /notes/
+  - title: In-class & Group Work
+    url: /exercises/
+  - title: Assignments & Peer Review
+    url: /assignments/
+  - title: Weekly Reflections
+    url: /reflections/

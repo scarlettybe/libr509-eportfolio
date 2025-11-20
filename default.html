@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 4rem;
+        line-height: 1.6;
+      }
+      header {
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 1rem;
+      }
+      nav a {
+        margin-right: 1rem;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      h1, h2, h3 {
+        font-weight: 600;
+      }
+      .meta {
+        font-size: 0.85rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+      footer {
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        font-size: 0.85rem;
+        color: #777;
+      }
+      .tag {
+        display: inline-block;
+        padding: 0.1rem 0.5rem;
+        margin-right: 0.3rem;
+        border-radius: 999px;
+        border: 1px solid #ddd;
+        font-size: 0.75rem;
+      }
+      .section-box {
+        border-left: 3px solid #ddd;
+        padding-left: 1rem;
+        margin: 1.5rem 0;
+      }
+      .callout {
+        background: #f7f7f7;
+        padding: 0.75rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{{ site.title }}</h1>
+      <div class="meta">{{ site.description }}</div>
+      <nav>
+        {% for item in site.nav_links %}
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+    </header>
+
+    <main>
+      <h1>{{ page.title }}</h1>
+      {% if page.subtitle %}
+        <p class="meta">{{ page.subtitle }}</p>
+      {% endif %}
+      {{ content }}
+    </main>
+
+    <footer>
+      <p>Course: LIBR 509 – Foundations of Resource Description and Knowledge Organization</p>
+      <p>Instructor: Dr. Julia Bullard · ePortfolio by {{ site.author.name }}</p>
+    </footer>
+  </body>
+</html>
