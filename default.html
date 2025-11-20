@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,101 +5,180 @@
     <title>{{ page.title }} | {{ site.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ page.description | default: site.description }}">
-    .content-wrapper {
-      background: rgba(255, 255, 255, 0.88);
-      padding: 30px;
-      border-radius: 12px;
-      margin-top: 30px;
-      margin-bottom: 60px;
-}
 
     <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 2rem 1.5rem 4rem;
-        line-height: 1.6;
+      :root {
+        --card-bg: rgba(255, 255, 255, 0.92);
+        --text: #222222;
+        --muted: #666666;
+        --accent: #2952cc;
+        --border: #e0e0e0;
+      }
 
-        background-image: url("/libr509-eportfolio/img/background.jpeg");
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
+      * {
+        box-sizing: border-box;
       }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        color: var(--text);
+        min-height: 100vh;
+        background:
+          linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.55)
+          ),
+          url('{{ "/img/background.jpeg" | relative_url }}') center center / cover fixed no-repeat;
+      }
+
+      .page-wrapper {
+        max-width: 960px;
+        margin: 2.5rem auto 3.5rem;
+        padding: 0 1rem;
+      }
+
+      .site-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        padding: 1.75rem 2rem 2.25rem;
+      }
+
       header {
-        margin-bottom: 2rem;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid var(--border);
         padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
       }
-      nav a {
-        margin-right: 1rem;
-        text-decoration: none;
-        font-size: 0.95rem;
+
+      .site-title {
+        font-size: 1.6rem;
+        font-weight: 650;
+        letter-spacing: 0.02em;
+        margin: 0;
       }
-      nav a:hover {
-        text-decoration: underline;
-      }
-      h1, h2, h3 {
-        font-weight: 600;
-      }
-      .meta {
-        font-size: 0.85rem;
-        color: #666;
-        margin-bottom: 1rem;
-      }
-      footer {
-        margin-top: 3rem;
-        padding-top: 1rem;
-        border-top: 1px solid #eee;
-        font-size: 0.85rem;
-        color: #777;
-      }
-      .tag {
-        display: inline-block;
-        padding: 0.1rem 0.5rem;
-        margin-right: 0.3rem;
-        border-radius: 999px;
-        border: 1px solid #ddd;
-        font-size: 0.75rem;
-      }
-      .section-box {
-        border-left: 3px solid #ddd;
-        padding-left: 1rem;
-        margin: 1.5rem 0;
-      }
-      .callout {
-        background: #f7f7f7;
-        padding: 0.75rem 1rem;
-        border-radius: 0.5rem;
+
+      .site-subtitle {
         font-size: 0.9rem;
+        color: var(--muted);
+        margin-top: 0.25rem;
+      }
+
+      nav {
+        margin-top: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      nav a {
+        font-size: 0.9rem;
+        text-decoration: none;
+        color: var(--muted);
+        padding-bottom: 0.2rem;
+        border-bottom: 2px solid transparent;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+
+      main h1 {
+        font-size: 1.4rem;
+        margin-top: 0;
+        margin-bottom: 0.35rem;
+      }
+
+      .page-subtitle {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 1.2rem;
+      }
+
+      main {
+        font-size: 0.98rem;
+        line-height: 1.7;
+      }
+
+      main p {
+        margin: 0.4rem 0 0.9rem;
+      }
+
+      main ul, main ol {
+        padding-left: 1.3rem;
+        margin: 0.2rem 0 0.9rem;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 1.4rem 0;
+      }
+
+      footer {
+        margin-top: 1.8rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid var(--border);
+        font-size: 0.8rem;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        .page-wrapper {
+          margin-top: 1.25rem;
+          margin-bottom: 2rem;
+        }
+        .site-card {
+          padding: 1.3rem 1.2rem 1.6rem;
+          border-radius: 12px;
+        }
+        .site-title {
+          font-size: 1.3rem;
+        }
+        main {
+          font-size: 0.96rem;
+        }
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>{{ site.title }}</h1>
-      <div class="meta">{{ site.description }}</div>
-      <nav>
-        {% for item in site.nav_links %}
-          <a href="{{ item.url }}">{{ item.title }}</a>
-        {% endfor %}
-      </nav>
-    </header>
+    <div class="page-wrapper">
+      <div class="site-card">
+        <header>
+          <h1 class="site-title">{{ site.title }}</h1>
+          <div class="site-subtitle">
+            {{ site.description }}
+          </div>
+          <nav>
+            <a href="{{ "/" | relative_url }}">Home</a>
+            <a href="{{ "/notes/" | relative_url }}">Weekly Notes</a>
+            <a href="{{ "/exercises/" | relative_url }}">In-class &amp; Group Work</a>
+            <a href="{{ "/assignments/" | relative_url }}">Assignments &amp; Peer Review</a>
+            <a href="{{ "/reflections/" | relative_url }}">Weekly Reflections</a>
+          </nav>
+        </header>
 
-    <main>
-      <h1>{{ page.title }}</h1>
-      {% if page.subtitle %}
-        <p class="meta">{{ page.subtitle }}</p>
-      {% endif %}
-    <div class="content-wrapper">
-      {{ content }}
+        <main>
+          <h1>{{ page.title }}</h1>
+          {% if page.subtitle %}
+            <div class="page-subtitle">
+              {{ page.subtitle }}
+            </div>
+          {% endif %}
+          {{ content }}
+        </main>
+
+        <footer>
+          <div>Course: LIBR 509 – Foundations of Resource Description and Knowledge Organization</div>
+          <div>ePortfolio by Scarlett Sun</div>
+        </footer>
+      </div>
     </div>
-    </main>
-
-    <footer>
-      <p>Course: LIBR 509 – Foundations of Resource Description and Knowledge Organization</p>
-      <p>Instructor: Dr. Julia Bullard · ePortfolio by {{ site.author.name }}</p>
-    </footer>
   </body>
 </html>
