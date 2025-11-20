@@ -1,8 +1,4 @@
 
----
-layout: default
-title: "Home"
----
 
 Welcome to my **LIBR 509 – Foundations of Resource Description and Knowledge Organization** ePortfolio.
 
